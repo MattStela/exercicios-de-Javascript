@@ -347,5 +347,231 @@ buttons.forEach(function (button, index) {
         }
       }
     }
+
+    function respostaAtividade5() {
+      div_resposta.innerHTML =
+        "<div id='resposta_atv5'>a resposta fica aqui</div><br>" +
+        "<div class='inputs'><p>primeiro número: </p>&nbsp;<input size='1'  id = 'input1'></div>" +
+        "<div class='inputs'><p>segundo número: </p>&nbsp;<input size='1'  id = 'input2'></div>" +
+        "<button id = 'button'>confirmar</button>";
+      div_resposta.style.display = "flex";
+      div_resposta.style.flexDirection = "column";
+      div_resposta.style.alignItems = "center";
+      div_resposta.style.justifyContent = "center";
+
+      inputs = document.querySelectorAll(".inputs");
+      inputs.forEach(function (input) {
+        input.style.marginBottom = "20px";
+        input.style.display = "flex";
+        input.style.flexDirection = "row";
+        input.style.alignItems = "center";
+        input.style.justifyContent = "center";
+        input.style.width = "50vw";
+        input.style.height = "5%";
+      });
+
+      button_atv5 = document.querySelector("#button");
+      button_atv5.addEventListener("click", function () {
+        function soma_atv5(numero1, numero2) {
+          var numero1 = parseInt(document.querySelector("#input1").value);
+          var numero2 = parseInt(document.querySelector("#input2").value);
+          return numero1 + numero2;
+        }
+        document.getElementById("resposta_atv5").textContent =
+          "a resposta é " + soma_atv5();
+      });
+    }
+
+    function respostaAtividade6() {
+      div_resposta.innerHTML =
+        "<div id='linha'>" +
+        "<div class='coluna' id='coluna1'>" +
+        "<div class='inputs'><p>primeira fruta: </p>&nbsp;<input size='10' class='frutas' id = 'input1'></div>" +
+        "<div class='inputs'><p>segunda fruta: </p>&nbsp;<input size='10' class='frutas' id = 'input2'></div>" +
+        "<div class='inputs'><p>terceira fruta: </p>&nbsp;<input size='10' class='frutas' id = 'input3'></div>" +
+        "</div>" +
+        "<div class='coluna' id = 'coluna2'>" +
+        "<div class='inputs'><p>quarta fruta: </p>&nbsp;<input size='10' class='frutas' id = 'input4'></div>" +
+        "<div class='inputs'><p>quinta fruta: </p>&nbsp;<input size='10' class='frutas' id = 'input5'></div>" +
+        "<div class='inputs'><p>sexta fruta: </p>&nbsp;<input size='10' class='frutas' id = 'input6'></div>" +
+        "</div>" +
+        "</div>" +
+        "<button id = 'button'>mostrar lista</button>";
+
+      div_resposta.style.display = "flex";
+      div_resposta.style.flexDirection = "column";
+      div_resposta.style.alignItems = "center";
+      div_resposta.style.justifyContent = "center";
+
+      var colunas = document.querySelector(".coluna");
+      colunas.style.display = "flex";
+      colunas.style.flexDirection = "column";
+      colunas.style.alignItems = "center";
+      colunas.style.justifyContent = "center";
+
+      var linha = document.querySelector("#linha");
+      linha.style.display = "flex";
+      linha.style.flexDirection = "linha";
+
+      inputs = document.querySelectorAll(".inputs");
+      inputs.forEach(function (input) {
+        input.style.marginBottom = "20px";
+        input.style.display = "flex";
+        input.style.flexDirection = "row";
+        input.style.alignItems = "center";
+        input.style.justifyContent = "center";
+        input.style.width = "50vw";
+        input.style.height = "2vh";
+      });
+
+      button_atv6 = document.querySelector("#button");
+      button_atv6.addEventListener("click", function () {
+        var frutasElementos = document.querySelectorAll(".frutas");
+        var frutasArray = [];
+        frutasElementos.forEach(function (frutaElemento) {
+          frutasArray.push(frutaElemento.value);
+          linha.innerHTML =
+            "a primeira fruta é&nbsp;" +
+            frutasArray[0] +
+            ", a segunda é&nbsp;" +
+            frutasArray[1] +
+            ", a terceira é&nbsp;" +
+            frutasArray[2] +
+            ", a quarta é&nbsp;" +
+            frutasArray[3] +
+            ", a quinta é&nbsp;" +
+            frutasArray[4] +
+            "&nbsp;e a sexta é&nbsp;" +
+            frutasArray[5];
+        });
+      });
+    }
+
+    function respostaAtividade7() {
+      div_resposta.innerHTML =
+        "<div id='linha'>" +
+        "<div class='coluna' id='coluna1'>" +
+        "<div class='inputs'><p>Título: </p>&nbsp;<input size='30' class='livro' id='input_titulo'></div>" +
+        "<div class='inputs'><p>Autor: </p>&nbsp;<input size='30' class='livro' id='input_autor'></div>" +
+        "</div>" +
+        "<div class='coluna' id='coluna2'>" +
+        "<div class='inputs'><p>Número de Páginas: </p>&nbsp;<input size='10' class='livro' id='input_paginas'></div>" +
+        "<div class='inputs'><p>Editora: </p>&nbsp;<input size='30' class='livro' id='input_editora'></div>" +
+        "</div>" +
+        "</div>" +
+        "<button id='button'>mostrar lista</button>";
+
+      div_resposta.style.display = "flex";
+      div_resposta.style.flexDirection = "column";
+      div_resposta.style.alignItems = "center";
+      div_resposta.style.justifyContent = "center";
+
+      var colunas = document.querySelector(".coluna");
+      colunas.style.display = "flex";
+      colunas.style.flexDirection = "column";
+      colunas.style.alignItems = "center";
+      colunas.style.justifyContent = "center";
+
+      var linha = document.querySelector("#linha");
+      linha.style.display = "flex";
+      linha.style.flexDirection = "linha";
+
+      inputs = document.querySelectorAll(".inputs");
+      inputs.forEach(function (input) {
+        input.style.marginBottom = "20px";
+        input.style.display = "flex";
+        input.style.flexDirection = "row";
+        input.style.alignItems = "center";
+        input.style.justifyContent = "center";
+        input.style.width = "50vw";
+        input.style.height = "2vh";
+      });
+
+      button_atv7 = document.querySelector("#button");
+      button_atv7.addEventListener("click", function () {
+        var titulo = document.querySelector("#input_titulo").value;
+        var autor = document.querySelector("#input_autor").value;
+        var numero_de_paginas = document.querySelector("#input_paginas").value;
+        var editora = document.querySelector("#input_editora").value;
+
+        var livro = {
+          titulo: titulo,
+          autor: autor,
+          paginas: numero_de_paginas,
+          editora: editora,
+        };
+
+        inputs = document.querySelectorAll(".livro");
+        inputs.forEach(function (input) {
+          input.value = "";
+        });
+
+        div_resposta.innerHTML =
+          "Este livro contém o título de&nbsp;'" +
+          livro.titulo +
+          "', o autor é&nbsp;" +
+          livro.autor +
+          ", tem&nbsp;" +
+          livro.paginas +
+          "&nbsp;páginas, e a editora é &nbsp;" +
+          livro.editora +
+          ".";
+      });
+    }
+
+    function respostaAtividade8() {
+      div_resposta.innerHTML =
+        "<button id='button'>tá aqui seu botão,<br> aqui ele aqui ó</button>";
+
+      div_resposta.style.display = "flex";
+      div_resposta.style.flexDirection = "column";
+      div_resposta.style.alignItems = "center";
+      div_resposta.style.justifyContent = "center";
+
+      button_atv8 = document.querySelector("#button");
+      button_atv8.addEventListener("click", function () {
+        alert("Você clicou nesse botão grandão aí, e agora?");
+      });
+    }
+
+    function respostaAtividade9() {
+      div_resposta.innerHTML =
+        "<div id='div_texto'>&nbsp;<textarea id='texto'></textarea></div><br><br><br>" +
+        "<button id='button_atv9'>confirmar</button>";
+
+      button_atv9 = document.querySelector("#button_atv9");
+      button_atv9.style.borderRadius = "50px";
+      button_atv9.style.fontFamily = "Arial";
+      button_atv9.style.backgroundColor = "blue";
+      button_atv9.style.color = "white";
+
+      var div_texto = document.querySelector("#div_texto");
+      div_texto.style.height = "100%";
+      div_texto.style.width = "100%";
+
+      var texto = document.querySelector("#texto");
+      texto.style.height = "100%";
+      texto.style.width = "100%";
+
+      texto.style.textAlign = "left";
+      texto.style.verticalAlign = "top";
+
+     
+
+      button_atv9.addEventListener("click", function () {
+        var guarda_texto = [document.querySelector("#texto").value];
+        
+        var frasesCapitalizadas = guarda_texto.map(function(frase) {
+          return frase.split(' ').map(function(palavra) {
+            return palavra.charAt(0).toUpperCase() + palavra.slice(1).toLowerCase();
+          }).join(' ');
+        });
+        
+        div_texto.innerHTML = frasesCapitalizadas
+
+
+
+      });
+    }
   });
 });

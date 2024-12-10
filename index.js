@@ -3,7 +3,7 @@ const atividades = {
   "atividade 1":
     "1. Variáveis e tipos de dados: Escreva um programa que declare duas variáveis, “nome” e “idade”, e as imprima em um console em uma frase que diga “Olá, meu nome é [nome] e eu tenho [idade] anos”.",
   "atividade 2":
-    "2. Operadores: Crie um programa que solicite ao usuário dois números e exiba o button_atividade da soma, subtração, multiplicação e divisão desses números.",
+    "2. Operadores: Crie um programa que solicite ao usuário dois números e exiba o resultado da soma, subtração, multiplicação e divisão desses números.",
   "atividade 3":
     "3. Condições: Escreva um programa que pergunte ao usuário sua idade e imprima se ele é maior ou menor de idade.",
   "atividade 4":
@@ -19,7 +19,7 @@ const atividades = {
   "atividade 9":
     "9. Manipulação de Strings: Escreva uma função que receba uma string e retorne a mesma string, mas com a primeira letra de cada palavra em maiúsculas.",
   "atividade 10":
-    "10. Promises e Fetch API: Use a Fetch API para fazer uma chamada para uma API pública (como a API do JSONPlaceholder) e exibir os button_atividades no console.",
+    "10. Promises e Fetch API: Use a Fetch API para fazer uma chamada para uma API pública (como a API do JSONPlaceholder) e exibir os resultados no console.",
 };
 
 var section = document.querySelector("#atividade"); // Seleciona o elemento <section> com id 'atividade'
@@ -556,22 +556,75 @@ buttons.forEach(function (button, index) {
       texto.style.textAlign = "left";
       texto.style.verticalAlign = "top";
 
-     
-
       button_atv9.addEventListener("click", function () {
         var guarda_texto = [document.querySelector("#texto").value];
-        
-        var frasesCapitalizadas = guarda_texto.map(function(frase) {
-          return frase.split(' ').map(function(palavra) {
-            return palavra.charAt(0).toUpperCase() + palavra.slice(1).toLowerCase();
-          }).join(' ');
+
+        var frasesCapitalizadas = guarda_texto.map(function (frase) {
+          return frase
+            .split(" ")
+            .map(function (palavra) {
+              return (
+                palavra.charAt(0).toUpperCase() + palavra.slice(1).toLowerCase()
+              );
+            })
+            .join(" ");
         });
-        
-        div_texto.innerHTML = frasesCapitalizadas
 
-
-
+        div_texto.innerHTML = frasesCapitalizadas;
       });
     }
+
+    function respostaAtividade10() {
+      div_resposta.innerHTML =
+        "<div id='div_resposta_api'><p> aaaa </p></div><br><br><br>" +
+        "<button id='button_atv10'>confirmar</button>";
+    
+      button_atv10 = document.querySelector("#button_atv10");
+      button_atv10.style.borderRadius = "50px";
+      button_atv10.style.fontFamily = "Arial";
+      button_atv10.style.backgroundColor = "blue";
+      button_atv10.style.color = "white";
+    
+      var div_resposta_api = document.querySelector("#div_resposta_api");
+      div_resposta_api.style.height = "100%";
+      div_resposta_api.style.width = "100%";
+      div_resposta_api.style.textAlign = "center";
+      div_resposta_api.style.verticalAlign = "center";
+    
+      button_atv10.addEventListener("click", function () {
+        // URL da API
+        const apiUrl = "https://jsonplaceholder.typicode.com/posts";
+    
+        // Fazendo a requisição à API
+        fetch(apiUrl)
+          .then((resposta_api) => {
+            if (!resposta_api.ok) {
+              throw new Error("Erro na requisição");
+            }
+            return resposta_api.json();
+          })
+          .then((dados_api) => {
+            if (div_resposta_api) {
+              // Limpa o conteúdo anterior
+              div_resposta_api.innerHTML = "";
+    
+              // Pega um item aleatório dos dados recebidos
+              const randomIndex = Math.floor(Math.random() * dados_api.length);
+              const post = dados_api[randomIndex];
+    
+              // Cria o elemento para exibir o post
+              const postElement = document.createElement('div');
+              postElement.innerHTML = `<h3>${post.title}</h3><p>${post.body}</p>`;
+              div_resposta_api.appendChild(postElement);
+            } else {
+              console.error('Elemento div_resposta_api não encontrado.');
+            }
+          })
+          .catch((erro_api) => {
+            console.error("Erro:", erro_api);
+          });
+      });
+    }
+    
   });
 });

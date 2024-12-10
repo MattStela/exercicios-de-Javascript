@@ -576,7 +576,7 @@ buttons.forEach(function (button, index) {
 
     function respostaAtividade10() {
       div_resposta.innerHTML =
-        "<div id='div_resposta_api'><p> aaaa </p></div><br><br><br>" +
+        "<div id='div_resposta_api'><p> clica no botão ali e veja a mágica acontecer </p></div><br><br><br>" +
         "<button id='button_atv10'>confirmar</button>";
     
       button_atv10 = document.querySelector("#button_atv10");
